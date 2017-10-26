@@ -1,22 +1,19 @@
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class FloatingChromosome extends Chromosome<Double> {
 
     Double max = 10.0, min = -10.0;
-    ArrayList<Point> points = new ArrayList<>();
+    static ArrayList<Point> points = new ArrayList<>();
     static double b = 0.5;
 
     FloatingChromosome() {
-        length = 3;
     }
 
     @Override
     public Chromosome<Double> init()
     {
         Chromosome chromosome = new FloatingChromosome();
-        genes = new ArrayList<Double>();
+        genes = new ArrayList<>();
 
         for(int i=0; i<length; i++)
         {
@@ -33,7 +30,12 @@ public class FloatingChromosome extends Chromosome<Double> {
         double sum = 0.0;
         for(int i=0; i<points.size(); i++)
         {
-            double temp= genes.get(0)+genes.get(1)*points.get(i).x+genes.get(2)+points.get(i).x*points.get(i).x-points.get(i).y;
+            double temp = 0;
+            for(int j = 0; j< length ; j++)
+            {
+                temp+= genes.get(j)*Math.pow(points.get(i).x,j);
+            }
+            temp -= points.get(i).y;
             sum += (temp*temp);
         }
         return points.size()/sum;

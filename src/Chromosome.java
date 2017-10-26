@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public abstract class Chromosome<T> implements Cloneable{
 
     ArrayList<T> genes;
-    protected int length;
+    static protected int length;
     static int generationNumber;
     static int totalGenerations;
 
