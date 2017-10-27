@@ -30,14 +30,18 @@ public class FloatingChromosome extends Chromosome<Double> {
         double sum = 0.0;
         for(int i=0; i<points.size(); i++)
         {
+            //System.out.println("Starting point "+i);
             double temp = 0;
             for(int j = 0; j< length ; j++)
             {
                 temp+= genes.get(j)*Math.pow(points.get(i).x,j);
             }
             temp -= points.get(i).y;
+            //System.out.println("Temp is: "+temp+" squared is "+temp*temp);
             sum += (temp*temp);
+            //System.out.println("Sum: "+ sum);
         }
+        //System.out.println("Fitness is "+ points.size()/sum);
         return points.size()/sum;
     }
 

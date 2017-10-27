@@ -12,8 +12,8 @@ public class GeneticAlgorithm {
     public GeneticAlgorithm()
     {
         this.minimum = 0;
-        this.popSize = 10;
-        this.maxGenerations = 10;
+        this.popSize = 500;
+        this.maxGenerations = 1000;
         this.crossoverP = 0.4;
         this.mutationP = 0.001;
     }
@@ -182,7 +182,7 @@ public class GeneticAlgorithm {
         population.get(0).setTotalGenerations(maxGenerations);
         for(int i=0; i<maxGenerations; i++)
         {
-            population.get(0).setGenerationNumber(i);
+            population.get(0).setGenerationNumber(i+1);
             selection();
             crossover();
             mutation();
