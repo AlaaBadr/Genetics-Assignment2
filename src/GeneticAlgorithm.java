@@ -12,8 +12,8 @@ public class GeneticAlgorithm {
     public GeneticAlgorithm()
     {
         this.minimum = 0;
-        this.popSize = 500;
-        this.maxGenerations = 1500;
+        this.popSize = 500000;
+        this.maxGenerations = 100;
         this.crossoverP = 0.4;
         this.mutationP = 0.001;
     }
@@ -131,11 +131,9 @@ public class GeneticAlgorithm {
             }
             range += c.fitness();
         }
-
-        Random rand = new Random();
         for(int i=0; i<population.size(); i++)
         {
-            double n = rand.nextInt((int)range);
+            double n = Math.random()*range;
             selected.add(cumulativetree.get(cumulativetree.floorKey(n)));
         }
     }
@@ -184,7 +182,7 @@ public class GeneticAlgorithm {
         population.get(0).setTotalGenerations(maxGenerations);
         for(int i=0; i<maxGenerations; i++)
         {
-            population.get(0).setGenerationNumber(i);
+            population.get(0).setGenerationNumber(i+1);
             selection();
             crossover();
             mutation();
