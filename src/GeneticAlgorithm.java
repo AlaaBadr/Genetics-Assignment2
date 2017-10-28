@@ -12,8 +12,8 @@ public class GeneticAlgorithm {
     public GeneticAlgorithm()
     {
         this.minimum = 0;
-        this.popSize = 500;
-        this.maxGenerations = 1000;
+        this.popSize = 500000;
+        this.maxGenerations = 100;
         this.crossoverP = 0.4;
         this.mutationP = 0.001;
     }
